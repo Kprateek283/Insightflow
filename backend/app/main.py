@@ -8,17 +8,12 @@ from app.routes.include_routers import include_routers
 from app.middlewares.auth_middleware import AuthMiddleware  # assuming you have this
 from app.database.db import connect_to_mongo, disconnect_from_mongo
 from dotenv import load_dotenv
-import os
 
-load_dotenv()  # loads from .env file
+load_dotenv()  
 
-ENV = os.getenv("ENV", "development") 
-
-dev = ENV == "development"
-
-origins = ["*"] if dev else [
-    os.getenv("FRONTEND_URL", "https://insightfloww.vercel.app/")
-]
+frontend_url = os.getenv("FRONTEND_URL")
+assert frontend_url is not None, "FRONTEND_URL is not set in .env"
+origins = [frontend_url]
 
 # Lifespan context manager
 @asynccontextmanager
