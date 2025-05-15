@@ -17,4 +17,4 @@ yt_dlp
 textract
 moviepy
 faiss-cpu
-
+cohere
