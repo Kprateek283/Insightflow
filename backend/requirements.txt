@@ -16,3 +16,5 @@ python-magic>=0.4.27,<0.5
 yt_dlp
 textract
 moviepy
+faiss-cpu
+
