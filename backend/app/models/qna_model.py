@@ -7,7 +7,7 @@ from datetime import datetime
 class QAItem(BaseModel):
     question: str
     answer: str
-    timestamp: datetime = Field(default_factory=datetime.now())
+    timestamp: datetime = Field(default_factory=datetime.now)  
     used_fallback: bool = False
     sources: Optional[List[str]] = None
 
