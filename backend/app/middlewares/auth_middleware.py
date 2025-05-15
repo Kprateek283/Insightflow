@@ -15,9 +15,15 @@ class AuthMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         path = request.url.path.rstrip("/")
 
+        # ✅ Always allow OPTIONS (for CORS preflight)
+        if request.method == "OPTIONS":
+            return await call_next(request)
+
+        # ✅ Allow whitelisted paths
         if path in self.skip_paths:
             return await call_next(request)
 
+        # 🔐 JWT check
         auth_header = request.headers.get("Authorization")
         if not auth_header or not auth_header.startswith("Bearer "):
             return JSONResponse({"error": "Missing or malformed token"}, status_code=401)
@@ -26,7 +32,7 @@ class AuthMiddleware(BaseHTTPMiddleware):
 
         try:
             payload = jwt.decode(token, self.secret_key, algorithms=[self.algorithm])
-            request.state.user = payload 
+            request.state.user = payload
         except ExpiredSignatureError:
             return JSONResponse({"error": "Token expired"}, status_code=401)
         except InvalidTokenError:
