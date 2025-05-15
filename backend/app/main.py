@@ -17,7 +17,7 @@ ENV = os.getenv("ENV", "development")
 dev = ENV == "development"
 
 origins = ["*"] if dev else [
-    os.getenv("FRONTEND_URL", "https://your-frontend.vercel.app")
+    os.getenv("FRONTEND_URL", "https://insightfloww.vercel.app/")
 ]
 
 # Lifespan context manager
