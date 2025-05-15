@@ -21,3 +21,4 @@ cohere
 transformers
 torch
 python-multipart
+PyJWT
