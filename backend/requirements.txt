@@ -20,4 +20,3 @@ faiss-cpu
 cohere
 transformers
 torch
-textwrap
