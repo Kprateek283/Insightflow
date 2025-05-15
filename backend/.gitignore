@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+backend-env/
+
+# Environment variables
+.env
+.env.*
+
+# VS Code settings
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Unit test / coverage
+htmlcov/
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+coverage.xml
+
+# Pydantic/mypy/misc
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# Database (if local DB used for testing)
+*.sqlite3
+
+# Node (if using frontend in same repo)
+node_modules/
+dist/
+build/
+
+# Docker (optional, if used)
+*.pid
+*.pid.lock
+
+# Editor-specific
+.idea/
+
+# PyInstaller
+*.spec
+
+# Compiled C files
+*.so
